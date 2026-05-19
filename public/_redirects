@@ -1,0 +1,8 @@
+# 1. Proxy for the Registration Form & General API
+/api/*  https://employee.azentraglobal.com/api/:splat  200
+
+# 2. Proxy for the Apply Form (if it uses /tracker)
+/tracker/*  https://employee.azentraglobal.com/tracker/:splat  200
+
+# 3. Handle React Routing (SPA)
+/*  /index.html  200

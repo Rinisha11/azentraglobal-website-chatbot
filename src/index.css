@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Azentra Global - IT & Training Company Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 30% 96%;
+    --secondary-foreground: 160 84% 25%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 160 40% 94%;
+    --accent-foreground: 160 84% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for hero sections */
+    --hero-gradient-start: 160 60% 95%;
+    --hero-gradient-end: 180 50% 92%;
+    --hero-text: 220 20% 15%;
+    --hero-text-muted: 220 10% 40%;
+
+    /* Service card highlights */
+    --service-bg: 0 0% 100%;
+    --service-border: 160 30% 85%;
+    --service-hover: 160 40% 97%;
+
+    /* Stats section */
+    --stats-bg: 160 84% 39%;
+    --stats-text: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 30% 96%;
+    --sidebar-accent-foreground: 160 84% 25%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 160 84% 39%;
+
+    --chart-1: 160 84% 39%;
+    --chart-2: 200 80% 50%;
+    --chart-3: 280 70% 55%;
+    --chart-4: 40 90% 55%;
+    --chart-5: 340 75% 55%;
+
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+
+.dark {
+    /* Backgrounds */
+    --background: 240 10% 3.9%;      /* Very Dark Gray (almost black) */
+    --foreground: 0 0% 98%;           /* Pure White text */
+
+    --card: 240 11% 7%;               /* Slightly lighter for cards/sections */
+    --card-foreground: 0 0% 98%;      /* White text on cards */
+
+    --popover: 240 11% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary/Accent Colors (Your Brand Green) */
+    --primary: 142 70% 50%;           /* Your Green */
+    --primary-foreground: 0 0% 0%;    /* Black text on Green buttons/accents */
+
+    /* Secondary/Muted Colors (For less important elements) */
+    --secondary: 240 3.7% 15.9%;      /* Dark Gray */
+    --secondary-foreground: 0 0% 98%; /* White text on secondary */
+
+    --muted: 240 3.7% 15.9%;          /* Dark Gray */
+    --muted-foreground: 240 5% 64.9%; /* Light Gray text (readable on dark) */
+
+    /* Borders and Inputs */
+    --border: 240 3.7% 20.9%;         /* A visible, but dark border */
+    --input: 240 3.7% 20.9%;
+
+    /* Ring for focus states */
+    --ring: 142 70% 50%;              /* Your Green ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)) 0%, hsl(var(--hero-gradient-end)) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(180 70% 40%) 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .stats-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(180 70% 35%) 100%);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* 1. Dot Pattern Background (Neo-Minimalist) */
+.bg-grid-black {
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #000000 1px, transparent 1px);
+}
+.dark .bg-grid-white {
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+}
+
+/* 2. Glass Card Utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* 3. Text Gradient (Modern Header) */
+.text-gradient {
+  background: linear-gradient(to right, #2563eb, #9333ea); /* Blue to Purple */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

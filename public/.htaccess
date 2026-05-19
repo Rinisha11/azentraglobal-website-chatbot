@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # 1. Base URL
+  # If you are deploying to https://yourdomain.com/, use "/"
+  # If you are deploying to https://yourdomain.com/subfolder/, use "/subfolder/"
+  RewriteBase /
+
+  # 2. Dont rewrite files or directories that actually exist
+  # (This ensures images, css, and js files load correctly)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+
+  # 3. Redirect everything else to index.html
+  # This lets React Router handle the page view
+  RewriteRule . /index.html [L]
+</IfModule>
